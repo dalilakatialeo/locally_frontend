@@ -1,8 +1,22 @@
 import React from "react"
+import { oneProject } from "../data"
 
 const ProjectPage = () => {
     return (
-        <h1> This is your Project Page </h1>
+        <div>
+            <h2>{oneProject.title}</h2>
+            <h3>Created at: {oneProject.date_created}</h3>
+            <h3>{`Status: ${oneProject.is_open}`}</h3>
+            <h3>Pledges:</h3>
+            <ul>
+                {oneProject.donations.map((pledgeData, key) => {
+                return (
+                <li>
+                    {pledgeData.amount} from {pledgeData.supporter}
+                </li>
+                );})}
+            </ul>
+        </div>
     )
 }
 

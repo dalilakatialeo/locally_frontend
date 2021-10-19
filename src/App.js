@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 // These are our components
 
-import NavigationComponent from "./components/Nav.jsx"
+import NavigationComponent from "./components/nav/Nav.jsx"
 
 // These are our pages
 
