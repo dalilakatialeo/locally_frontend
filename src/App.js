@@ -1,5 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import "./App.css"
 
 // These are our components
 
@@ -23,7 +24,7 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/projects">
+          <Route path="/project/:id">
             <Projects />
           </Route>
         </Switch>
