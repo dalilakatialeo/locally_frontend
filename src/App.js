@@ -11,6 +11,7 @@ import NavigationComponent from "./components/nav/Nav.jsx"
 import Home from './pages/HomePage.jsx'
 import Projects from "./pages/ProjectPage.jsx"
 import Login from "./pages/LoginPage"
+import NewProjectPage from "./pages/NewProjectPage"
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/new-project">
+            <NewProjectPage />
           </Route>
         </Switch>
       </Router>

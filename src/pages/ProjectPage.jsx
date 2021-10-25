@@ -5,6 +5,15 @@ import { useParams } from "react-router-dom";
 const ProjectPage = () => {
     const [projectData, setProjectData] = useState();
     const { id } = useParams();
+    const active = () => {
+        if 
+         (projectData?.is_open === "true") {
+            return `yes`
+    } 
+        else {
+        return `no`;
+    }
+}
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
@@ -16,32 +25,35 @@ const ProjectPage = () => {
             setProjectData(data);
         });
     }, []);
+    const formattedDate = new Date(projectData?.date_created).toDateString()
+        console.log(formattedDate)
     return (
         <div>
             <h2>{projectData?.title}</h2>
-            <h3>Created at: {projectData?.date_created}</h3>
-            <h3>{`Status: ${projectData?.is_open}`}</h3>
-            <h3>Pledges:</h3>
-            {/* <ul>
-                {projectData.pledges.map((pledgeData, key) => {
-                return (
-                <li>
-                    {pledgeData.amount} from {pledgeData.supporter}s
-                </li>
-                );})}
-            </ul> */}
+            <h3>Created at: {formattedDate}</h3>
+            <h3>{projectData?.description}</h3>
+            <img src= {projectData?.image}/>
+            {/* <h3>{`Active: ${active()}`}</h3> */}
+            <h3>Active: {projectData?.is_open === "true" ? "yes" : "no"}</h3>
+            <h3>Goal: {projectData?.goal}</h3>
         </div>
     )
 }
 
 export default ProjectPage
 
-// {
-// 	"title": "Project one",
-// 	"description": "The first project.",
-//  "location": "Brisbane",
-// 	"donation": 150,
-// 	"image": "https://via.placeholder.com/300.jpg",
-// 	"is_open": true,
-// 	"date_created": "2020-03-20T14:28:23.382748Z"
+// date_created: "2020-03-21T00:28:23.382748+10:00"
+// description: "Another project"
+// goal: 1000
+// id: 4
+// image: "https://via.placeholder.com/300.jpg"
+// is_open: true
+// location: "STAFFORD"
+// owner: 11
+// title: "Project"
+
+// const quickFunc = (someVar) => {
+//     if(someVar && someVar.amount) {
+//         // do stuff
+//     }
 // }
