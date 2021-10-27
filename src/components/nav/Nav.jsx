@@ -21,7 +21,7 @@ const Nav = () => {
         }
       </nav>
       <div id="img-div">
-        <img id="logo" src={"locally-logo.jpg"} alt="locally"/>
+        <img id="logo" src={"../locally-logo.jpg"} alt="locally"/>
       </div>
     </div>
   )
