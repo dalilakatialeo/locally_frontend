@@ -11,6 +11,10 @@
     padding: 2%;
 }
 
+.active {
+    font-weight: bolder;
+}
+
 #img-div {
     display: flex;
     justify-content: center;
