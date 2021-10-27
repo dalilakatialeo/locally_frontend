@@ -5,8 +5,6 @@ import { Link, useLocation } from "react-router-dom"
 import "./Nav.css"
 
 
-// something to handle authentication and only show new project + if user is logged in
-
 const Nav = () => {
   const location = useLocation()
   // console.log(location)
