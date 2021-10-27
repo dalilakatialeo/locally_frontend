@@ -11,6 +11,10 @@
     padding: 2%;
 }
 
+nav a:hover {
+    text-decoration:underline;
+}
+
 .active {
     font-weight: bolder;
 }
