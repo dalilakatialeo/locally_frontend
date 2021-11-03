@@ -27,15 +27,24 @@ const ProjectPage = () => {
     }, []);
     const formattedDate = new Date(projectData?.date_created).toDateString()
         console.log(formattedDate)
+    // const deleteProject = async () => {
+    //     await fetch (`${process.env.REACT_APP_API_URL}projects/${project_id}`, {
+    //         method: "delete",
+    //         headers: {
+    //             "Authorization": `Token $`
+    //         }
+    //     })
+    // }
     return (
         <div>
             <h2>{projectData?.title}</h2>
-            <h3>Created at: {formattedDate}</h3>
+            <h3>Created: {formattedDate}</h3>
             <h3>{projectData?.description}</h3>
+            <h3>{projectData?.location}</h3>
+            <h3>Goal: $ {projectData?.goal}.00</h3>
             <img src= {projectData?.image}/>
             {/* <h3>{`Active: ${active()}`}</h3> */}
-            <h3>Active: {projectData?.is_open === "true" ? "yes" : "no"}</h3>
-            <h3>Goal: {projectData?.goal}</h3>
+            
         </div>
     )
 }

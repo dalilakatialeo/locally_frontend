@@ -15,7 +15,10 @@ const Nav = () => {
         
         {
           localStorage.getItem('token') 
-          ? <Link className={`${location.pathname === '/new-project/' ? 'active' : ''}`}to="/new-project/">New project +</Link>
+          ? <div>
+              <Link className={`${location.pathname === '/new-project/' ? 'active' : ''}`}to="/new-project/">New project +</Link>
+              <Link className={`${location.pathname === '/login/' ? 'active' : ''}`} to="/login/">Logout</Link>
+            </div>
           : <Link className={`${location.pathname === '/login/' ? 'active' : ''}`} to="/login/">Login</Link>
 
         }

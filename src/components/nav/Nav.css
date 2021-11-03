@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     justify-content: right;
-    width: 95%;
+    width: 100%;
 }
 
 .navbar a {
