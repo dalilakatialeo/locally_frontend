@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from "react"
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 // import { oneProject } from "../data"
 
 const ProjectPage = () => {
     const [projectData, setProjectData] = useState();
+    const history = useHistory();
     const { id } = useParams();
     const active = () => {
         if 
@@ -14,6 +15,20 @@ const ProjectPage = () => {
         return `no`;
     }
 }
+
+const deleteFunction = async () => {
+        // This is our API request, which we need to tell our function to wait for using the key word await
+    await fetch(`${process.env.REACT_APP_API_URL}projects/${id}`, {
+          method: "delete",
+          headers: {
+            "Authorization": `Token ${localStorage.getItem('token')}`
+          }
+        })
+        // Once we delete the project above, we then want to navigate back to the homepage
+        // since the project we are looking at, doesn't exist anymore
+        history.push('/')
+      }
+
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
@@ -45,6 +60,8 @@ const ProjectPage = () => {
             <img src= {projectData?.image}/>
             {/* <h3>{`Active: ${active()}`}</h3> */}
             
+            {/* <button onClick={editFunction}>Edit Project</button> */}
+            <button onClick={deleteFunction}>Delete Project</button>
         </div>
     )
 }

@@ -1,65 +1,110 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import "./NewProjectForm.css"
 
-function NewProjectForm() {
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
-    });
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        setCredentials((prevCredentials) => ({
-            ...prevCredentials,
+
+const NewProjectForm = () => {
+    const history = useHistory();
+    const [projectInfo, setProjectInfo] = useState({
+        title: '',
+        description: '',
+        location: '',
+        goal: '',
+        image: '',
+        is_open: '',
+        date_created: new Date()
+      });
+      const handleChange = (event) => {
+        const { id, value } = event.target;
+        setProjectInfo((prevProject) => {
+          return {
+            ...prevProject,
             [id]: value,
-        }));
-    };
-
-    const postData = async () => {
-        const response = await fetch(
-            `${process.env.REACT_APP_API_URL}api-token-auth/`,
-            {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(credentials),
-        }
-        );
+          };
+        });
+      };
+      const postData = async () => {
+        console.log('Im posting a project to your API');
+        const token = window.localStorage.getItem('token');
+        console.log("What is token: ", token)
+        console.log(projectInfo)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}projects/`, {
+          method: 'post',
+          headers: {
+            "Authorization": `Token ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(
+            projectInfo
+          ),
+        });
         return response.json();
-    };
-
-    const handleSubmit = (e) => {
+      };
+      const handleSubmit = (e) => {
         e.preventDefault();
-        if (credentials.username && credentials.password) {
-            postData().then((response) => {
-                window.localStorage.setItem("token", response.token);
-            });
-        }
-    };
-    return (
-        <form>
+        // if (window.localStorage.getItem('token')) {
+        postData().then((response) => {
+          console.log(response)
+        //   console.log('response from our API --------', response);
+          // window.localStorage.setItem('token', response.token);
+          // history.push('/');
+        });
+        // }
+      };
+      return (
+          <div id="form-container">
+            <form id="project-form" onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="username">Username:</label>
-                <input 
-                    type="text"
-                    id="username"
-                    placeholder="Enter username"
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor='title'>Project Title:</label>
                 <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                    onChange={handleChange}
+                type='text'
+                id='title'
+                onChange={handleChange}
                 />
             </div>
-            <button type="submit" onClick={handleSubmit}>
-                Login
-            </button>
-        </form>
-    );
-}
+            <div id="description">
+                <label htmlFor='description'>Project Description:</label>
+                <textarea
+                id='description'
+                onChange={handleChange}
+                />
+            </div>
+            <div id="location">
+                <label htmlFor='location'>Location:</label>
+                <input
+                id='location'
+                onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor='goal'>Goal:</label>
+                <input
+                type='text'
+                id='goal'
+                onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor='image'>Image:</label>
+                <input
+                type='text'
+                id='image'
+                onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor='is_open'>Is this project active?</label>
+                <input
+                type='text'
+                id='is_open'
+                onChange={handleChange}
+                />
+            </div>
+
+            <button type='submit'>Submit New Project</button>
+            </form>
+        </div>
+      );
+    };
 
 export default NewProjectForm

@@ -1,7 +1,6 @@
 .navbar {
     display: flex;
     justify-content: right;
-    width: 100%;
 }
 
 .navbar a {
@@ -13,6 +12,10 @@
 
 nav a:hover {
     text-decoration:underline;
+}
+
+#loggedIn-nav {
+    display: flex;
 }
 
 .active {

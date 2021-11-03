@@ -18,7 +18,7 @@ input, label, button {
     display: grid;
 }
 
-input, label {
+input, label, textarea {
     width: 90%;
     margin: auto;
 }
