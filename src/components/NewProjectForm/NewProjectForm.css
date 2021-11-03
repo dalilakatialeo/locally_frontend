@@ -1,6 +1,6 @@
 .form-container {
     display: flex;
-    width: 60%
+    width: 40%
 }
 
 #project-form {
@@ -9,6 +9,7 @@
 
 textarea {
     display: grid;
+    text-align: center;
     width: 90%;
     margin: auto;
     margin-bottom: 2%;
