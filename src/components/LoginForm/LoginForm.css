@@ -1,13 +1,18 @@
-#form-container {
+.form-container {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    /* width: 25%; */
     margin: auto;
     margin-top: 5vh;
     margin-bottom: 10vh;
     padding: 3%;
     border: 3px solid #212121;
 }
+
+#login-form-container {
+    width: 25%;
+}
+
 
 #form-container, input, label, button {
     justify-content: center;

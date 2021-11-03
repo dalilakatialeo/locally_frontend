@@ -40,7 +40,7 @@ function LoginForm() {
         }
     };
     return (
-        <div id="form-container">
+        <div id="login-form-container" className="form-container">
             <form>
                 <div>
                     <label htmlFor="username">Username:</label>

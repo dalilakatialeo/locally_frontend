@@ -52,7 +52,7 @@ const NewProjectForm = () => {
         // }
       };
       return (
-          <div id="form-container">
+          <div id="project-form-container" className="form-container">
             <form id="project-form" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor='title'>Project Title:</label>
