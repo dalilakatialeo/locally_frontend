@@ -55,7 +55,7 @@ const deleteFunction = async () => {
             <h2>{projectData?.title}</h2>
             <h3>Created: {formattedDate}</h3>
             <h3>{projectData?.description}</h3>
-            <h3>{projectData?.location}</h3>
+            <h3>Location: {projectData?.location}</h3>
             <h3>Goal: $ {projectData?.goal}.00</h3>
             <img src= {projectData?.image}/>
             {/* <h3>{`Active: ${active()}`}</h3> */}
