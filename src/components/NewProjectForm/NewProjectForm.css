@@ -18,3 +18,8 @@ textarea {
 input {
     margin-bottom: 2%;
 }
+
+#radio-buttons {
+    display: flex;
+    flex-direction: column;
+}

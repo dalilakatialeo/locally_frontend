@@ -51,7 +51,7 @@ const deleteFunction = async () => {
     //     })
     // }
     return (
-        <div>
+        <div id="card">
             <h2>{projectData?.title}</h2>
             <h3>Location: {projectData?.location}</h3>
             <h3>Created: {formattedDate}</h3>
@@ -61,7 +61,7 @@ const deleteFunction = async () => {
             {/* <h3>{`Active: ${active()}`}</h3> */}
             
             {/* <button onClick={editFunction}>Edit Project</button> */}
-            <button onClick={deleteFunction}>Delete Project</button>
+            <button id="delete-button" className="submit-button" onClick={deleteFunction}>Delete Project</button>
         </div>
     )
 }

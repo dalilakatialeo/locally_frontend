@@ -12,6 +12,7 @@ import Home from './pages/HomePage.jsx'
 import Projects from "./pages/ProjectPage.jsx"
 import Login from "./pages/LoginPage"
 import NewProjectPage from "./pages/NewProjectPage"
+import SignUpPage from "./pages/SignUpPage"
 
 const App = () => {
   return (
@@ -32,6 +33,9 @@ const App = () => {
           </Route>
           <Route path="/new-project">
             <NewProjectPage />
+          </Route>
+          <Route path="/sign-up">
+            <SignUpPage />
           </Route>
         </Switch>
       </Router>

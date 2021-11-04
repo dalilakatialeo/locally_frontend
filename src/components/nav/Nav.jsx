@@ -1,16 +1,18 @@
 // npm modules from https://npm.js.com/
-import React, {useState, useEffect} from "react"
-import { Link, useLocation } from "react-router-dom"
+import React, {useState} from "react"
+import { Link, useLocation, useHistory } from "react-router-dom"
 // import LoginForm from "../LoginForm/LoginForm"
 import "./Nav.css"
 
 
 const Nav = () => {
   const location = useLocation()
+  const history = useHistory();
   // console.log(location)
   const [token, setToken] = useState(localStorage.getItem('token'))
   const logout = () => {
     localStorage.setItem('token', null)
+    history.push('/')
     setToken(null)
     // window.location = window.location.origin
   }
@@ -18,15 +20,18 @@ const Nav = () => {
   return (
     <div>
       <nav className="navbar">
-        <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
-        
         {
           token 
-          ? <div id="loggedIn-nav">
+          ? <div className="nav-links">
+              <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
               <Link className={`${location.pathname === '/new-project/' ? 'active' : ''}`}to="/new-project/">New project +</Link>
-              <button onClick={logout} className={`${location.pathname === '/login/' ? 'active' : ''}`}>Logout</button>
+              <button id="logout-button" onClick={logout} className={`${location.pathname === '/login/' ? 'active' : ''}`}>Logout</button>
             </div>
-          : <Link className={`${location.pathname === '/login/' ? 'active' : ''}`} to="/login/">Login</Link>
+          : <div className="nav-links">
+            <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
+            <Link className={`${location.pathname === '/login/' ? 'active' : ''}`} to="/login/">Login</Link>
+            <Link className={`${location.pathname === '/sign-up/' ? 'active' : ''}`} to="/sign-up/">Sign up!</Link>
+            </div>
 
         }
       </nav>

@@ -1,31 +1,37 @@
-.navbar {
-    display: flex;
-    justify-content: right;
-}
-
-.navbar a {
-    font-size: .8em;
+.navbar a, .nav-links button, #logout-button {
+    font-size: .7em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 2%;
+    padding: 1%;
 }
 
-nav a:hover {
+nav a:hover, #logout-button:hover {
     text-decoration:underline;
 }
 
-#loggedIn-nav {
+.nav-links {
     display: flex;
+    justify-content: flex-end;
+    margin-right: 1%;
 }
 
 .active {
     font-weight: bolder;
 }
 
+#logout-button {
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    color: #212121;
+    background-color: #ebfeff;
+    font-weight: normal;
+    cursor: pointer;
+}
+
 #img-div {
     display: flex;
     justify-content: center;
-    margin: 2% auto 2% auto;
+    margin: auto auto 2% auto;
 }
 
 img#logo {

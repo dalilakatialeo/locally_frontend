@@ -85,7 +85,7 @@ const NewProjectForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor='image'>Image:</label>
+                <label htmlFor='image'>Image URL:</label>
                 <input
                 type='text'
                 id='image'
@@ -93,7 +93,7 @@ const NewProjectForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor='is_open'>Is this project active?</label>
+                <label htmlFor='is_open'>Is this project active? (true or false)</label>
                 <input
                 type='text'
                 id='is_open'
@@ -101,7 +101,7 @@ const NewProjectForm = () => {
                 />
             </div>
 
-            <button type='submit'>Submit New Project</button>
+            <button className="submit-button"type='submit'>Submit New Project</button>
             </form>
         </div>
       );
