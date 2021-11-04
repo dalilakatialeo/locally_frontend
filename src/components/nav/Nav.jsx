@@ -16,22 +16,22 @@ const Nav = () => {
     setToken(null)
     // window.location = window.location.origin
   }
-  console.log(localStorage.getItem('token'))
+  console.log("getting token in nav", localStorage.getItem('token'))
   return (
     <div>
       <nav className="navbar">
         {
-          token 
+          !token || token === "null"
           ? <div className="nav-links">
-              <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
-              <Link className={`${location.pathname === '/new-project/' ? 'active' : ''}`}to="/new-project/">New project +</Link>
-              <button id="logout-button" onClick={logout} className={`${location.pathname === '/login/' ? 'active' : ''}`}>Logout</button>
-            </div>
+          <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
+          <Link className={`${location.pathname === '/login/' ? 'active' : ''}`} to="/login/">Login</Link>
+          <Link className={`${location.pathname === '/sign-up/' ? 'active' : ''}`} to="/sign-up/">Sign up!</Link>
+          </div>
           : <div className="nav-links">
-            <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
-            <Link className={`${location.pathname === '/login/' ? 'active' : ''}`} to="/login/">Login</Link>
-            <Link className={`${location.pathname === '/sign-up/' ? 'active' : ''}`} to="/sign-up/">Sign up!</Link>
-            </div>
+          <Link className={`${location.pathname === '/' ? 'active' : ''}`}to="/">Home</Link>
+          <Link className={`${location.pathname === '/new-project/' ? 'active' : ''}`}to="/new-project/">New project +</Link>
+          <button id="logout-button" onClick={logout} className={`${location.pathname === '/login/' ? 'active' : ''}`}>Logout</button>
+        </div>
 
         }
       </nav>
