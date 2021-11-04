@@ -6,15 +6,15 @@ const ProjectPage = () => {
     const [projectData, setProjectData] = useState();
     const history = useHistory();
     const { id } = useParams();
-    const active = () => {
-        if 
-         (projectData?.is_open === "true") {
-            return `yes`
-    } 
-        else {
-        return `no`;
-    }
-}
+//     const active = () => {
+//         if 
+//          (projectData?.is_open === "true") {
+//             return `yes`
+//     } 
+//         else {
+//         return `no`;
+//     }
+// }
 
 const deleteFunction = async () => {
         // This is our API request, which we need to tell our function to wait for using the key word await
@@ -39,7 +39,7 @@ const deleteFunction = async () => {
             console.log(id)
             setProjectData(data);
         });
-    }, []);
+    }, );
     const formattedDate = new Date(projectData?.date_created).toDateString()
         console.log(formattedDate)
     // const deleteProject = async () => {
@@ -57,7 +57,7 @@ const deleteFunction = async () => {
             <h3>Created: {formattedDate}</h3>
             <h3>{projectData?.description}</h3>
             <h3>Goal: $ {projectData?.goal}.00</h3>
-            <img src= {projectData?.image}/>
+            <img alt="project" src= {projectData?.image}/>
             {/* <h3>{`Active: ${active()}`}</h3> */}
             
             {/* <button onClick={editFunction}>Edit Project</button> */}
