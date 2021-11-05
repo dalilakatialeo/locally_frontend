@@ -80,7 +80,7 @@ export const oneProject = {
     is_open: false,
     date_created: "2020-03-20T14:22:23.382748Z",
     owner: 1,
-    pledges: [
+    donations: [
         {
             id: 1,
             amount: 100,
