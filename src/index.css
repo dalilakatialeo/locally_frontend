@@ -13,7 +13,7 @@ h3, p {
   font-size: 1em;
 }
 
-h2, h3, .unauthorised {
+h2, h3, .unauthorised, .thank-you {
   text-align: center;
 }
 

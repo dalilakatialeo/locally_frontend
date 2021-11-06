@@ -14,6 +14,7 @@ import Login from "./pages/LoginPage"
 import NewProjectPage from "./pages/NewProjectPage"
 import SignUpPage from "./pages/SignUpPage"
 import DonationPage from "./pages/DonationPage"
+import ThankYouPage from "./pages/ThankYouPage"
 
 const App = () => {
   return (
@@ -40,6 +41,9 @@ const App = () => {
           </Route>
           <Route path="/donation-form">
             <DonationPage />
+          </Route>
+          <Route path="/thank-you">
+            <ThankYouPage />
           </Route>
         </Switch>
       </Router>

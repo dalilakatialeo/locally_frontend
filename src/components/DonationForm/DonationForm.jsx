@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import './DonationForm.css'
+import { useHistory } from "react-router-dom";
 
 function DonationForm() {
-    // const history = useHistory();
-    // const [projectData, setProjectData] = useState();
+    const history = useHistory();
+    const [projectData, setProjectData] = useState();
     const [userInfo, setUser] = useState({});
     const handleChange = (event) => {
         let { id, value } = event.target;
@@ -27,16 +26,14 @@ function DonationForm() {
         e.preventDefault();
         postData()
             .then((response) => {
-                <div className="thank-you">
-        <h3> Thank you for your support, it means the world!</h3>
-        <p> Are you feeling generous?</p>
-        <p><Link to="/">Donate to another project!</Link></p>
-
-    </div>})
+                console.log('------response from my API --------')
+                history.push("/thank-you");
+            })
     };
     return (
-        <div id="donation-form-container" className="form-container">
-                <form id="donation-form" onSubmit={handleSubmit}>
+        <div id="signup-form-container" className="form-container">
+                {/* <p className="pagetitle--register" align="center">Create your account</p> */}
+                <form id="signup-form" onSubmit={handleSubmit}>
                     <div>
                         <label>Donation Amount:</label>
                         <input
@@ -45,10 +42,10 @@ function DonationForm() {
                         onChange={handleChange} />
                     </div>
                     <div>
-                        <label>Comment:</label>
+                        <label>Comment</label>
                         <textarea
-                        type="textarea" 
-                        id="comment" 
+                        type="text" 
+                        id="comment:" 
                         onChange={handleChange} />
                     </div>
                     <button className="submit-button" type="submit" onClick={handleSubmit}>Donate!</button>
