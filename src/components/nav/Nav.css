@@ -19,13 +19,18 @@ nav a:hover, #logout-button:hover {
     font-weight: bolder;
 }
 
-#logout-button {
+#logout-button, #cities {
     border: none;
     font-family: 'Nunito', sans-serif;
     color: #212121;
     background-color: #ebfeff;
     font-weight: normal;
     cursor: pointer;
+}
+
+#city-list {
+    display: flex;
+    justify-content: flex-start;
 }
 
 #img-div {
