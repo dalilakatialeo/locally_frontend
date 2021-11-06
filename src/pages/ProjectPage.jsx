@@ -1,9 +1,9 @@
 import React, { useState, useEffect} from "react"
 import { useParams, useHistory } from "react-router-dom";
-import { oneProject } from "../data"
+// import { oneProject } from "../data"
 
 const ProjectPage = () => {
-    const [projectData, setProjectData] = useState( { donations: []});
+    const [projectData, setProjectData] = useState();
     const history = useHistory();
     const { id } = useParams();
 //     const active = () => {
@@ -41,7 +41,7 @@ const deleteFunction = async () => {
         });
     }, );
     const formattedDate = new Date(projectData?.date_created).toDateString()
-        console.log(formattedDate)
+        // console.log(formattedDate)
     // const deleteProject = async () => {
     //     await fetch (`${process.env.REACT_APP_API_URL}projects/${project_id}`, {
     //         method: "delete",
@@ -50,27 +50,30 @@ const deleteFunction = async () => {
     //         }
     //     })
     // }
-    return (
-        <div id="card">
-            <h2>{projectData?.title}</h2>
-            <h3>Location: {projectData?.location}</h3>
-            <h3>Created on: {formattedDate}</h3>
-            <h3>{projectData?.description}</h3>
-            <h3>Goal: $ {projectData?.goal}.00</h3>
-           
-            <h4>Donations:</h4>
-            <ul>{oneProject.donations.map((donationData, key) => {
-                return (
-                    <li> ${donationData.amount}: {donationData.comment}</li>);
-            })}</ul>
-             <h3>Raised so far: $ {projectData?.total_donated}.00</h3>
-
-            <img alt="project" src= {projectData?.image}/>
-            {/* <h3>{`Active: ${active()}`}</h3> */}
-            
-            {/* <button onClick={editFunction}>Edit Project</button> */}
-            <button id="delete-button" className="submit-button" onClick={deleteFunction}>Delete Project</button>
-        </div>
+    const [token, setToken] = useState(window.localStorage.getItem('token'))
+        useEffect(() => {
+            setToken(window.localStorage.getItem('token'))
+        }, [])
+        return  (
+                <div id="card">
+                    <div>
+                        <h2>{projectData?.title}</h2>
+                        <h3>Location: {projectData?.location}</h3>
+                        <h3>Created on: {formattedDate}</h3>
+                        <h3>{projectData?.description}</h3>
+                        <h3>Goal: $ {projectData?.goal}.00</h3>
+                        <h3>Raised so far: $ {projectData?.total_donated}.00</h3>
+                        <button id="delete-button" className="submit-button">Donate!</button>
+                        <img alt="project" src= {projectData?.image}/>
+                    </div>
+                    {token !== "null"
+                    ?<div>        
+                        {/* <button onClick={editFunction}>Edit Project</button> */}
+                        <button id="delete-button" className="submit-button" onClick={deleteFunction}>Delete Project</button>
+                    </div>
+                    : <div></div>
+                    }
+                </div>
     )
 }
 
