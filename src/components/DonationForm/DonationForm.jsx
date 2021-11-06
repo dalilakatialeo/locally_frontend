@@ -1,31 +1,51 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
 
-function DonationForm() {
+const DonationForm = (props) => {
     const history = useHistory();
-    const [userInfo, setUser] = useState({});
+    // const { refreshProjectData } = props;
+    const { id } = useParams();
+    const [Donation, setDonation] = useState({
+        DonationAmount: "",
+        DonationComment: "",
+        DonationAnonymous: "undefined",
+        DonationProject_id: "id"
+    });
+
     const handleChange = (event) => {
-        let { id, value } = event.target;
-        setUser((prevProject) => {
+        const { id, value } = event.target;
+        setDonation((prevDonation) => {
             return {
-                ...prevProject,
+                ...prevDonation,
                 [id]: value,
             };
         });
     };
-    const postData = () => {
-        return fetch(`${process.env.REACT_APP_API_URL}users/`,
+    const postData = async () => {
+        const token = window.localStorage.getItem("token");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}donations/`,
             {
                 method: "post",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(userInfo),
-            }).then(i => i.json());
+                headers: {
+                    "Authorization": `Token ${token}`,
+                    "Content-Type": "application/json" 
+                },
+                body: JSON.stringify({
+                    amount: Donation?.amount,
+                    comment: Donation?.comment,
+                    anonymous: Donation?.anonymous,
+                    project_id: Donation?.project_id,
+                }),
+            });
+            // refreshProjectData();
+            console.log(response)
+            return response.json();
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         postData()
             .then((response) => {
-                console.log('------response from my API --------')
+                // console.log('------response from my API --------')
                 history.push("/thank-you");
             })
     };
@@ -41,7 +61,7 @@ function DonationForm() {
                         onChange={handleChange} />
                     </div>
                     <div>
-                        <label>Comment</label>
+                        <label>Comment:</label>
                         <textarea
                         type="text" 
                         id="comment:" 
