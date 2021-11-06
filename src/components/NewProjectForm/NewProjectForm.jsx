@@ -92,6 +92,14 @@ const NewProjectForm = () => {
                 onChange={handleChange}
                 />
             </div>
+            <div>
+                <label htmlFor='is_open'>Is this project active? (true or false)</label>
+                <input
+                type='text'
+                id='is_open'
+                onChange={handleChange}
+                />
+            </div>
 
             <button className="submit-button"type='submit'>Submit New Project</button>
             </form>
