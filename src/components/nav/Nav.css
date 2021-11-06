@@ -28,11 +28,6 @@ nav a:hover, #logout-button:hover {
     cursor: pointer;
 }
 
-#city-list {
-    display: flex;
-    justify-content: flex-start;
-}
-
 #img-div {
     display: flex;
     justify-content: center;
