@@ -93,7 +93,7 @@ const NewProjectForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor='is_open'>Is this project active? (true or false)</label>
+                <label htmlFor='is_open'>Is this project active?</label>
                 <input
                 type='text'
                 id='is_open'
