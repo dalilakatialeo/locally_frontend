@@ -1,11 +1,13 @@
 import React, { useState, useEffect} from "react"
-import { useParams, useHistory } from "react-router-dom";
+import { Link, useLocation, useParams, useHistory } from "react-router-dom";
 // import { oneProject } from "../data"
 
 const ProjectPage = () => {
     const [projectData, setProjectData] = useState();
     const history = useHistory();
     const { id } = useParams();
+    const location = useLocation()
+
 //     const active = () => {
 //         if 
 //          (projectData?.is_open === "true") {
@@ -36,7 +38,7 @@ const deleteFunction = async () => {
             return results.json();
         })
         .then((data) => {
-            console.log(id)
+            // console.log(id)
             setProjectData(data);
         });
     }, );
@@ -54,6 +56,18 @@ const deleteFunction = async () => {
         useEffect(() => {
             setToken(window.localStorage.getItem('token'))
         }, [])
+
+    const newDonation = () => {
+        localStorage.getItem('token')
+        return (
+            <div>
+            {
+                token || token !== "null"
+                ? history.push('/donation-form')
+                : <div></div>
+    }
+            </div>
+        )}
         return  (
                 <div id="card">
                     <div>
@@ -63,7 +77,8 @@ const deleteFunction = async () => {
                         <h3>{projectData?.description}</h3>
                         <h3>Goal: $ {projectData?.goal}.00</h3>
                         <h3>Raised so far: $ {projectData?.total_donated}.00</h3>
-                        <button id="delete-button" className="submit-button">Donate!</button>
+                        <button id="delete-button" className="submit-button" onClick={newDonation}>Donate!</button>
+                        {/* <button id="delete-button" className="submit-button" onClick>Donate!</button> */}
                         <img alt="project" src= {projectData?.image}/>
                     </div>
                     {token !== "null"
@@ -76,6 +91,7 @@ const deleteFunction = async () => {
                 </div>
     )
 }
+
 
 export default ProjectPage
 

@@ -13,6 +13,7 @@ import Projects from "./pages/ProjectPage.jsx"
 import Login from "./pages/LoginPage"
 import NewProjectPage from "./pages/NewProjectPage"
 import SignUpPage from "./pages/SignUpPage"
+import DonationPage from "./pages/DonationPage"
 
 const App = () => {
   return (
@@ -36,6 +37,9 @@ const App = () => {
           </Route>
           <Route path="/sign-up">
             <SignUpPage />
+          </Route>
+          <Route path="/donation-form">
+            <DonationPage />
           </Route>
         </Switch>
       </Router>
