@@ -1,22 +1,10 @@
 import React, { useState, useEffect} from "react"
-import { Link, useLocation, useParams, useHistory } from "react-router-dom";
-// import { oneProject } from "../data"
+import { useParams, useHistory } from "react-router-dom";
 
 const ProjectPage = () => {
     const [projectData, setProjectData] = useState();
     const history = useHistory();
     const { id } = useParams();
-    const location = useLocation()
-
-//     const active = () => {
-//         if 
-//          (projectData?.is_open === "true") {
-//             return `yes`
-//     } 
-//         else {
-//         return `no`;
-//     }
-// }
 
 const deleteFunction = async () => {
         // This is our API request, which we need to tell our function to wait for using the key word await
@@ -38,7 +26,6 @@ const deleteFunction = async () => {
             return results.json();
         })
         .then((data) => {
-            // console.log(id)
             setProjectData(data);
         });
     }, );

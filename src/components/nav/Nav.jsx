@@ -16,7 +16,7 @@ const Nav = () => {
     setToken(null)
     // window.location = window.location.origin
   }
-  console.log("getting token in nav", localStorage.getItem('token'))
+  // console.log("getting token in nav", localStorage.getItem('token'))
   return (
     <div>
       <nav className="navbar">

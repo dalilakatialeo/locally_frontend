@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import "./NewProjectForm.css"
 
 
 const NewProjectForm = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const [projectInfo, setProjectInfo] = useState({
         title: '',
         description: '',
@@ -89,14 +89,6 @@ const NewProjectForm = () => {
                 <input
                 type='text'
                 id='image'
-                onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor='is_open'>Is this project active? (true or false)</label>
-                <input
-                type='text'
-                id='is_open'
                 onChange={handleChange}
                 />
             </div>

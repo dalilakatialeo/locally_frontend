@@ -1,71 +1,60 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import "./LoginForm.css"
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import './DonationForm.css'
 
 function DonationForm() {
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
-    });
-    const history = useHistory();
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        setCredentials((prevCredentials) => ({
-            ...prevCredentials,
-            [id]: value,
-        }));
+    // const history = useHistory();
+    // const [projectData, setProjectData] = useState();
+    const [userInfo, setUser] = useState({});
+    const handleChange = (event) => {
+        let { id, value } = event.target;
+        setUser((prevProject) => {
+            return {
+                ...prevProject,
+                [id]: value,
+            };
+        });
     };
-
-    const postData = async () => {
-        const response = await fetch(
-            `${process.env.REACT_APP_API_URL}api-token-auth/`,
+    const postData = () => {
+        return fetch(`${process.env.REACT_APP_API_URL}users/`,
             {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(credentials),
-        }
-        );
-        return response.json();
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userInfo),
+            }).then(i => i.json());
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (credentials.username && credentials.password) {
-            postData().then((response) => {
-                window.localStorage.setItem("token", response.token);
-                window.location = window.location.origin;
-            });
-        }
+        postData()
+            .then((response) => {
+                <div className="thank-you">
+        <h3> Thank you for your support, it means the world!</h3>
+        <p> Are you feeling generous?</p>
+        <p><Link to="/">Donate to another project!</Link></p>
+
+    </div>})
     };
     return (
-        <div id="login-form-container" className="form-container">
-            <form>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input 
-                        type="text"
-                        id="username"
-                        placeholder="Enter username"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Password"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button className="submit-button" type="submit" onClick={handleSubmit}>
-                    Login
-                </button>
-            </form>
-        </div>
-    );
+        <div id="donation-form-container" className="form-container">
+                <form id="donation-form" onSubmit={handleSubmit}>
+                    <div>
+                        <label>Donation Amount:</label>
+                        <input
+                        type="text" 
+                        id="donation-amount" 
+                        onChange={handleChange} />
+                    </div>
+                    <div>
+                        <label>Comment:</label>
+                        <textarea
+                        type="textarea" 
+                        id="comment" 
+                        onChange={handleChange} />
+                    </div>
+                    <button className="submit-button" type="submit" onClick={handleSubmit}>Donate!</button>
+                </form>
+            </div >
+    )
 }
 
-export default DonationForm
+export default DonationForm;

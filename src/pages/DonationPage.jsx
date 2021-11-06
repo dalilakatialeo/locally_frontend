@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useHistory } from "react-router-dom"
-import NewProjectForm from "../components/NewProjectForm/NewProjectForm"
+import DonationForm from "../components/DonationForm/DonationForm"
 
-function NewProjectPage() {
+function DonationPage() {
     const history = useHistory();
     const [token, setToken] = useState(window.localStorage.getItem('token'))
     useEffect(() => {
@@ -13,7 +13,7 @@ function NewProjectPage() {
     }
     
     return token !== "null" 
-    ? <NewProjectForm /> 
+    ? <DonationForm /> 
     : (<div className="unauthorised">
         <h3> Uh oh!</h3>
         <p> You need to join the community to donate to a project!</p>
@@ -22,4 +22,4 @@ function NewProjectPage() {
 
 }
 
-export default NewProjectPage;
+export default DonationPage;
