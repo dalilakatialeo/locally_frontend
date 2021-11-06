@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 function DonationForm() {
     const history = useHistory();
-    const [projectData, setProjectData] = useState();
     const [userInfo, setUser] = useState({});
     const handleChange = (event) => {
         let { id, value } = event.target;

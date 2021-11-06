@@ -10,7 +10,6 @@ function Thanks() {
         <p> Are you feeling generous?</p>
         <button id="delete-button" className="submit-button" onClick={Home}>Donate again!</button>
     </div>)
-
 }
 
 export default Thanks;
