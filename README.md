@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Locally - Causes that matter to you
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![locally-logo](https://user-images.githubusercontent.com/79177865/140610370-d70cbfbc-77d2-4593-9fce-58c336967b55.jpg)
 
-## Available Scripts
+Locally is a crowdfunding app that allows users in a specific location to view projects happening in their community and pledge donations.
 
-In the project directory, you can run:
+The app has been deployed on [Heroku](https://locally-crowdfund.herokuapp.com/).
 
-### `npm start`
+At present, the Brisbane edition is available.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*Plans are in place to create Sydney, Melbourne and Perth editions.*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Stack
 
-### `npm test`
+Locally's frontend was created with ReactJS.
+Its interface is integrated with a [Django/DRF backend](https://github.com/dalilakatialeo/locally_repo) via APIs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tools
 
-### `npm run build`
+The tools used in development were:
+- Visual Studio Code
+- Git
+- Insomnia
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Disclaimer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+At present, pledging donations is only available through a POST method on Insomnia.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Screenshots
 
-### `npm run eject`
+#### Homepage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/79177865/140610553-06eb8479-8487-4f93-8830-5e4b09b010cc.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Project card for not logged users
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/79177865/140610547-7761d00e-3e57-47f7-b08f-1c0af08b3d7c.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Error 401 Unauthorised: users must be logged in to post a donation
 
-## Learn More
+![image](https://user-images.githubusercontent.com/79177865/140610665-422a6aa4-c2e2-43c5-87e0-ec2a3cf4fb9e.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Signup page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://user-images.githubusercontent.com/79177865/140610606-bcb082bb-acaa-4863-8890-e5a218920174.png)
 
-### Code Splitting
+#### Login page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![image](https://user-images.githubusercontent.com/79177865/140610613-4b61a5da-780d-42ad-b164-b16ee52b13b5.png)
 
-### Analyzing the Bundle Size
+#### Project card for logged in users
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![image](https://user-images.githubusercontent.com/79177865/140610731-96591bac-1ef7-4d16-bdca-f241a3258ccb.png)
 
-### Making a Progressive Web App
+#### Donation page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![image](https://user-images.githubusercontent.com/79177865/140610744-7256e40a-87ce-4439-b839-9115eea7fedf.png)
 
-### Advanced Configuration
+#### Post-donation page aka Thank you
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![image](https://user-images.githubusercontent.com/79177865/140610765-a7e3d26f-83c1-4da4-98e3-4a84652616a5.png)
 
-### Deployment
+#### New Project form
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![image](https://user-images.githubusercontent.com/79177865/140610864-ba08b173-1c43-41a8-9593-48ab6ea0f515.png)
 
-### `npm run build` fails to minify
+#### Successfully created project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](https://user-images.githubusercontent.com/79177865/140611052-52398f3c-c04f-4d60-badd-c39bb98f43df.png)
+
+![image](https://user-images.githubusercontent.com/79177865/140611061-6d375fd3-44af-4086-b5a5-781b8f71f62d.png)
+
+#### Error 401 Unauthorised: users must be logged in to create projects
+(Even if they manually navigate to the [New Project URL](https://locally-crowdfund.herokuapp.com/new-project/), users are not able to create a project and are redirected to an error page.
+
+![image](https://user-images.githubusercontent.com/79177865/140611092-d6da2214-47c8-44e2-931b-314cd49cb311.png)
+
+#### Donations created on Insomnia
+
+![image](https://user-images.githubusercontent.com/79177865/140611175-f36505f0-a88d-49be-8a2e-0c497e035a0e.png)
+
+#### Project with donation
+
+![image](https://user-images.githubusercontent.com/79177865/140611185-d8ec9a78-c0ab-4bd2-abc7-49c838dea397.png)
+
+
+## Style guide
+
+### Logo
+
+- The main heading of the app is [Glacial Indifference](https://www.fontsquirrel.com/fonts/glacial-indifference) in 26.9 pt.
+- The subheading is [Brittany](https://freefontsvault.com/brittany-font-download-free/) in 10.8 pt.
+- The city subtitle is [Glacial Indifference](https://www.fontsquirrel.com/fonts/glacial-indifference) in 5 pt.
+
+The logo was created with [Canva](Canva.com) and imported as a .jpg image in the public folder of the React app.
+
+#### Theme colours
+
+- Background colour is #ebfeff
+- Font colour is #212121
+
+#### Font
+
+- The font utilised across the app is [Nunito](https://fonts.google.com/share?selection.family=Nunito:wght@300;600) in 300 and 600px.
